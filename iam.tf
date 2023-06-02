@@ -1,15 +1,15 @@
 resource "aws_iam_role" "eventbridge_codebuild_role" {
   name = "eventbridge-codebuild-role"
   assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "ec2.amazonaws.com"
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "events.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
         }
-      },
     ]
   })
   tags = {
