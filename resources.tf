@@ -21,7 +21,7 @@ resource "aws_codebuild_project" "cloud_nuke_project" {
 
   source {
     type                = "NO_SOURCE"
-    buildspec           = ""
+    buildspec           = file("cloud_nuke.yaml") 
     report_build_status = false
   }
 }
